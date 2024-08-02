@@ -3,19 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             const headerOffset = 60; // Adjust this value based on your header height
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    
+
             window.scrollTo({
                 top: offsetPosition,
                 behavior: 'smooth'
@@ -64,4 +56,44 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // New code for scroll animation
+    const animateOnScroll = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver(animateOnScroll, options);
+
+    const aboutImage = document.querySelector('.about-image');
+    const aboutText = document.querySelector('.about-text');
+
+    if (aboutImage && aboutText) {
+        observer.observe(aboutImage);
+        observer.observe(aboutText);
+    }
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 4000); // Change image every 4 seconds
+    }
 });
