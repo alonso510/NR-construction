@@ -32,7 +32,7 @@ app.post('/api/contact', (req, res) => {
         from: 'nrconstructionmailer@gmail.com',
         to: 'nrconstructionllc22@gmail.com', // Sending to the same email
         subject: 'New Contact Message',
-        text: `Business Inquiry from ${name} (${email}):\n\n${message}`
+        text: `Business Inquiry from\n\n Name: ${name}\n\n Email: (${email}):\n\n${message}`
     };
 
     // Send email

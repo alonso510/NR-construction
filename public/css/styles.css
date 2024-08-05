@@ -334,3 +334,65 @@ header {
         grid-template-columns: 1fr;
     }
 }
+/* Team Section */
+#team {
+    padding: 4rem 0;
+    background-color: #f0f0f0;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.team-card h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.team-card .title {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.team-card .number {
+    color: #007bff;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .team-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-container {
+        grid-template-columns: 1fr;
+    }
+}
+.team-card .number a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.team-card .number a:hover {
+    text-decoration: underline;
+}
