@@ -17,8 +17,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 const transporter = nodemailer.createTransport({
     service: 'gmail', 
     auth: {
-        user: 'nrconstructionmailer@gmail.com', 
-        pass: 'qzvsiaoolbkrvuhy'   
+        user: process.env.EMAIL, 
+        pass: process.env.PASSWORD
     }
 });
 
@@ -29,7 +29,7 @@ app.post('/api/contact', (req, res) => {
 
     // Email options
     const mailOptions = {
-        from: 'nrconstructionmailer@gmail.com',
+        from: process.env.EMAIL,
         to: 'nrconstructionllc22@gmail.com', // Sending to the same email
         subject: 'New Contact Message',
         text: `Business Inquiry from\n\n Name: ${name}\n\n Email: (${email}):\n\n${message}`
