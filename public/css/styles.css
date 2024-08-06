@@ -396,3 +396,71 @@ header {
 .team-card .number a:hover {
     text-decoration: underline;
 }
+.info-item {
+    /* ... existing styles ... */
+    word-break: break-word; /* This will allow long words to break */
+    overflow-wrap: break-word; /* This is for better browser support */
+}
+
+.info-item p {
+    /* ... existing styles ... */
+    max-width: 100%; /* Ensures the content doesn't exceed the container width */
+}
+
+.info-item a {
+    /* ... existing styles ... */
+    display: inline-block; /* This allows the link to wrap */
+    max-width: 100%; /* Ensures the link doesn't exceed the container width */
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+.navbar-phone {
+    margin-left: 20px;
+}
+
+.navbar-phone a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-phone a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .navbar-phone {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
