@@ -115,4 +115,21 @@ document.addEventListener('DOMContentLoaded', function() {
              localStorage.setItem('darkMode', null);
          }
      });
+     document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+    
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.classList.toggle('active'); // This line toggles the hamburger icon if you have styles for it
+        });
+    
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    });
 });

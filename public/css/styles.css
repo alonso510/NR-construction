@@ -464,7 +464,16 @@ nav ul li {
         margin-top: 10px;
     }
 }
-/* Navbar styles */
+@media screen and (max-width: 768px) {
+    #about {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #about p {
+        margin-bottom: 1rem;
+    }
+}
 header {
     background-color: #f4f4f4;
     padding: 1rem 0;
@@ -528,7 +537,7 @@ nav {
     }
 
     .nav-menu {
-        position: absolute;
+        position: fixed;
         top: 70px;
         left: 0;
         right: 0;
@@ -538,11 +547,14 @@ nav {
         transition: transform 0.3s ease-out;
         transform: translateY(-150%);
         margin-left: 0;
+        z-index: 1000;
+        padding: 1rem 0;
     }
 
     .nav-menu.active {
         transform: translateY(0);
     }
+
 
     .nav-menu li {
         margin: 1rem 0;
